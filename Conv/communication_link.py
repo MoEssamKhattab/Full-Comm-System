@@ -1,6 +1,6 @@
-from conv.encoder import encode
-from BPSK.bpsk_transmitter import bpsk_transmitter
-from channel_demod_channel_decode import channel_demod_channel_decode
+from .conv.encoder import encode
+from .BPSK.bpsk_transmitter import bpsk_transmitter
+from .channel_demod_channel_decode import channel_demod_channel_decode
 
 def communication_link(s,generator_polynomials,K,fc,Ab,Tb,n,snr_start,snr_end,snr_step):
     """

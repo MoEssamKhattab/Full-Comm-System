@@ -1,11 +1,11 @@
 import numpy as np
-from HuffmanCode.huffman_decode import huffman_decode
-from ZigzagTransform.reverse_zigzag_transform import reverse_zigzag_transform
-from RunLength.Run_Length_Decocder import run_length_decoder
-from Quantizer.dequantize import dequantize
-from DCT.IDCT import IDCT
-from DCT.IDCT_Basis import IDCT_Basis
-from Blockify.deblockify_image import deblockify_image
+from .HuffmanCode.huffman_decode import huffman_decode
+from .ZigzagTransform.reverse_zigzag_transform import reverse_zigzag_transform
+from .RunLength.Run_Length_Decocder import run_length_decoder
+from .Quantizer.dequantize import dequantize
+from .DCT.IDCT import IDCT
+from .DCT.IDCT_Basis import IDCT_Basis
+from .Blockify.deblockify_image import deblockify_image
 
 def decoder(encoded_image, N, CompressionMode, VerticalPadding, HoriziontalPadding, HuffmanTree, no_vertical_blocks,no_horizontal_blocks):
     """

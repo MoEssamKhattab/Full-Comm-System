@@ -1,5 +1,5 @@
 from .encoder import convert_sequence_to_string, encode
-from util.util import generate_binary_sequences, encode_sequence_with_polynomial
+from Conv.util.util import generate_binary_sequences, encode_sequence_with_polynomial
 
 states = None
 generator_polynomials_example = [[1, 1, 1], [0, 1, 1], [1, 0, 1]]

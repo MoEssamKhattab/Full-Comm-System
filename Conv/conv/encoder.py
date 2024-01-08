@@ -1,4 +1,4 @@
-from util.util import encode_sequence_with_polynomial
+from Conv.util.util import encode_sequence_with_polynomial
 
 
 def divide_into_blocks(A, block_size):

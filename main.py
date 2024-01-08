@@ -29,7 +29,7 @@ def main():
     snr_start = -32
     snr_end = -10
     snr_step = 1
-    channel_decoded_data = communication_link(s,generator_polynomials,K,fc,Ab,Tb,n,snr_start,snr_end,snr_step)
+    channel_decoded_data = communication_link(encoded_data,generator_polynomials,K,fc,Ab,Tb,n,snr_start,snr_end,snr_step)
     
     # ==================== Decode Image =======================
     decoded_image = decoder(channel_decoded_data, N, compression_mode, vertical_padding, horizontal_padding, huffman_tree,no_vertical_blocks,no_horizontal_blocks)

@@ -1,5 +1,5 @@
 from PIL import Image
-from Utilities.save_image import save_image
+from JPEG.Utilities import save_image
 import numpy as np
 
 def read_image(image_path, N):

@@ -1,11 +1,11 @@
 import numpy as np
-from Blockify.blockify_image import blockify_image
-from DCT.DCT import DCT
-from DCT.DCT_Basis import DCT_Basis
-from Quantizer.quantize import quantize
-from ZigzagTransform.zigzag_transform import zigzag_transform
-from RunLength.Run_Length_Encoder import run_length_encoder
-from HuffmanCode.huffman_encode import huffman_encode
+from JPEG.Blockify.blockify_image import blockify_image
+from JPEG.DCT.DCT import DCT
+from JPEG.DCT.DCT_Basis import DCT_Basis
+from JPEG.Quantizer.quantize import quantize
+from JPEG.ZigzagTransform.zigzag_transform import zigzag_transform
+from JPEG.RunLength.Run_Length_Encoder import run_length_encoder
+from JPEG.HuffmanCode.huffman_encode import huffman_encode
 
 def encoder(image_array, N, CompressionMode):
     """
