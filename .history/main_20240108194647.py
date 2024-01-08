@@ -12,7 +12,7 @@ def main():
 
     # ==================== Read Image =======================
     N = 8
-    image_path = "./img2.jpg"
+    image_path = "./3.jpg"
     image_array, vertical_padding, horizontal_padding = read_image(image_path, N)
 
     # ==================== Encode Image =======================

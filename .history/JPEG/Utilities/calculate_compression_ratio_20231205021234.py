@@ -1,4 +1,3 @@
-import numpy as np
 
 def calculate_comprrssion_ratio(original_image_array, entropy_encoder_output):
     """
@@ -16,4 +15,4 @@ def calculate_comprrssion_ratio(original_image_array, entropy_encoder_output):
     # count the number of bits for the entropy encoder output
     compressed_size = len(entropy_encoder_output)     # in bits
     
-    return int(np.ceil(original_size / compressed_size))
+    return round(original_size / compressed_size)
