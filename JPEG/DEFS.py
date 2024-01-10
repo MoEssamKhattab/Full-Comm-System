@@ -8,3 +8,8 @@ class CompressionMode(Enum):
     """
     LOW = 1
     HIGH = 2
+
+
+class CompressionTechnique(Enum):
+    HUFFMAN = 1
+    ARITHMETIC = 2

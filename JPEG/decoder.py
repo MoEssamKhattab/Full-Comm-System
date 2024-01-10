@@ -8,7 +8,7 @@ from JPEG.DCT.IDCT_Basis import IDCT_Basis
 from JPEG.Blockify.deblockify_image import deblockify_image
 from JPEG.FinitePercisionArthimiticDecoder.decoder import arithmetic_decode
 
-def decoder(encoded_image, N, CompressionMode, VerticalPadding, HoriziontalPadding, HuffmanTree, no_vertical_blocks,no_horizontal_blocks):
+def decoder(encoded_image, N, CompressionMode, VerticalPadding, HoriziontalPadding, HuffmanTree, no_vertical_blocks,no_horizontal_blocks,CompressionTechnique):
     """
     Decode the encoded image
     :param encoded_image: encoded image
@@ -22,7 +22,10 @@ def decoder(encoded_image, N, CompressionMode, VerticalPadding, HoriziontalPaddi
     :return: decoded image
     """
     # [1] apply Entropy decoding to encoded image
-    entropy_decoded_image = np.array(arithmetic_decode(encoded_image,HuffmanTree))
+    if CompressionTechnique == CompressionTechnique.ARITHMETIC:
+        entropy_decoded_image = np.array(arithmetic_decode(encoded_image, HuffmanTree))
+    else:
+        entropy_decoded_image = np.array(huffman_decode(encoded_image,HuffmanTree))
     
     # [2] apply run-length decoding
     runlength_decoded_image = run_length_decoder(entropy_decoded_image, no_vertical_blocks, no_horizontal_blocks, N)
