@@ -21,12 +21,8 @@ def communication_link(s, generator_polynomials, K, fc, Ab, Tb, n, snr_start, sn
     channel_encoded_sequence = channel_encoder(s, generator_polynomials, K, block_size)
     modulated_signal = bpsk_transmitter(channel_encoded_sequence, fc, Ab, Tb, n)
     modulated_signal_without_conv = bpsk_transmitter(s, fc, Ab, Tb, n)
-    
-    channel_decoded_signal_high_snr, channel_decoded_signal_medium_snr, channel_decoded_signal_low_snr, \
-    restored_src_encoded_bit_seq_high_snr, restored_src_encoded_bit_seq_medium_snr, restored_src_encoded_bit_seq_low_snr \
-    = channel_demod_channel_decode(s, modulated_signal_without_conv, modulated_signal,
+    decoded_signal = channel_demod_channel_decode(s, modulated_signal_without_conv, modulated_signal,
                                                   generator_polynomials, K, snr_start, snr_end, snr_step, fc, Tb, n,
                                                   block_size)
 
-    return channel_decoded_signal_high_snr, channel_decoded_signal_medium_snr, channel_decoded_signal_low_snr, \
-        restored_src_encoded_bit_seq_high_snr, restored_src_encoded_bit_seq_medium_snr, restored_src_encoded_bit_seq_low_snr
+    return decoded_signal

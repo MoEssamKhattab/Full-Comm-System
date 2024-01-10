@@ -15,7 +15,7 @@ def main():
     image_path = "./img2.jpg"
     image_array, vertical_padding, horizontal_padding = read_image(image_path, N)
 
-    #print(image_array.shape)
+    print(image_array.shape)
 
     # ==================== Encode Image =======================
     compression_mode = CompressionMode.LOW
