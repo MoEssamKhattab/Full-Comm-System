@@ -1,5 +1,5 @@
 from JPEG.Utilities.read_image import read_image
-from JPEG.DEFS import CompressionMode,CompressionTechnique
+from JPEG.DEFS import CompressionMode
 from JPEG.encoder import encoder
 import numpy as np
 from JPEG.Utilities.calculate_compression_ratio import calculate_comprrssion_ratio
@@ -19,8 +19,7 @@ def main():
 
     # ==================== Encode Image =======================
     compression_mode = CompressionMode.LOW
-    compression_technique = CompressionTechnique.ARITHMETIC
-    encoded_data, huffman_tree, no_vertical_blocks, no_horizontal_blocks = encoder(image_array, N, compression_mode,compression_technique)
+    encoded_data, huffman_tree, no_vertical_blocks, no_horizontal_blocks = encoder(image_array, N, compression_mode)
 
     # ==================== Communication Link =======================
     K = 3

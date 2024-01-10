@@ -38,11 +38,11 @@ def channel_demod_channel_decode(bit_seq,bpsk_modulated_sequence_without_conv,mo
         channel_decoded_ber[i] = hamming_distance(bit_seq, channel_decoded_signal)
 
         #if i == 0:      # at low SNR
-        if SNR_dB[i] == -30:
+        if SNR_dB[i] == -20:
             channel_decoded_signal_low_snr = channel_decoded_signal
             restored_src_encoded_bit_seq_low_snr = restored_src_encoded_bit_seq
         #elif i == len(SNR_dB) // 2:     # at medium SNR
-        elif SNR_dB[i] == -20:
+        elif SNR_dB[i] == -15:
             channel_decoded_signal_medium_snr = channel_decoded_signal
             restored_src_encoded_bit_seq_medium_snr = restored_src_encoded_bit_seq
 
