@@ -42,19 +42,19 @@ def main():
     # ==================== Decode Image =======================
     # With Channel Encoding
     decoded_image_channel_high = decoder(channel_decoded_signal_high_snr, N, compression_mode, vertical_padding, horizontal_padding,
-                            huffman_tree, no_vertical_blocks, no_horizontal_blocks)
+                            huffman_tree, no_vertical_blocks, no_horizontal_blocks,compression_technique)
     decoded_image_channel_medium = decoder(channel_decoded_signal_medium_snr, N, compression_mode, vertical_padding, horizontal_padding,
-                            huffman_tree, no_vertical_blocks, no_horizontal_blocks)
+                            huffman_tree, no_vertical_blocks, no_horizontal_blocks,compression_technique)
     decoded_image_channel_low = decoder(channel_decoded_signal_low_snr, N, compression_mode, vertical_padding, horizontal_padding,
-                            huffman_tree, no_vertical_blocks, no_horizontal_blocks)
+                            huffman_tree, no_vertical_blocks, no_horizontal_blocks,compression_technique)
     
     # Without Channel Encoding
     decoded_image_src_high = decoder(restored_src_encoded_bit_seq_high_snr, N, compression_mode, vertical_padding, horizontal_padding,
-                            huffman_tree, no_vertical_blocks, no_horizontal_blocks)
+                            huffman_tree, no_vertical_blocks, no_horizontal_blocks,compression_technique)
     decoded_image_src_medium = decoder(restored_src_encoded_bit_seq_medium_snr, N, compression_mode, vertical_padding, horizontal_padding,
-                            huffman_tree, no_vertical_blocks, no_horizontal_blocks)
+                            huffman_tree, no_vertical_blocks, no_horizontal_blocks,compression_technique)
     decoded_image_src_low = decoder(restored_src_encoded_bit_seq_low_snr, N, compression_mode, vertical_padding, horizontal_padding,
-                            huffman_tree, no_vertical_blocks, no_horizontal_blocks)
+                            huffman_tree, no_vertical_blocks, no_horizontal_blocks,compression_technique)
 
 
     # ==================== Calculate Compression Ratio =======================
