@@ -1,11 +1,12 @@
 import numpy as np
-from .HuffmanCode.huffman_decode import huffman_decode
-from .ZigzagTransform.reverse_zigzag_transform import reverse_zigzag_transform
-from .RunLength.Run_Length_Decocder import run_length_decoder
-from .Quantizer.dequantize import dequantize
-from .DCT.IDCT import IDCT
-from .DCT.IDCT_Basis import IDCT_Basis
-from .Blockify.deblockify_image import deblockify_image
+from JPEG.HuffmanCode.huffman_decode import huffman_decode
+from JPEG.ZigzagTransform.reverse_zigzag_transform import reverse_zigzag_transform
+from JPEG.RunLength.Run_Length_Decocder import run_length_decoder
+from JPEG.Quantizer.dequantize import dequantize
+from JPEG.DCT.IDCT import IDCT
+from JPEG.DCT.IDCT_Basis import IDCT_Basis
+from JPEG.Blockify.deblockify_image import deblockify_image
+from JPEG.FinitePercisionArthimiticDecoder.decoder import arithmetic_decode
 
 def decoder(encoded_image, N, CompressionMode, VerticalPadding, HoriziontalPadding, HuffmanTree, no_vertical_blocks,no_horizontal_blocks):
     """
@@ -21,7 +22,7 @@ def decoder(encoded_image, N, CompressionMode, VerticalPadding, HoriziontalPaddi
     :return: decoded image
     """
     # [1] apply Entropy decoding to encoded image
-    entropy_decoded_image = np.array(huffman_decode(encoded_image,HuffmanTree))
+    entropy_decoded_image = np.array(arithmetic_decode(encoded_image,HuffmanTree))
     
     # [2] apply run-length decoding
     runlength_decoded_image = run_length_decoder(entropy_decoded_image, no_vertical_blocks, no_horizontal_blocks, N)

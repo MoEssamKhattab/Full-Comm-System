@@ -1,21 +1,4 @@
-from Conv.util.util import encode_sequence_with_polynomial
-
-
-def divide_into_blocks(A, block_size):
-    """
-    Divide a binary message into blocks of a specified size.
-
-    Parameters:
-    - A (str): Binary message to be divided into blocks.
-    - block_size (int): Size of each block.
-
-    Returns:
-    - blocks (list): List of binary blocks.
-    """
-    num_blocks = (len(A) + block_size - 1) // block_size
-    A += '0' * (num_blocks * block_size - len(A))
-    blocks = [A[i * block_size: (i + 1) * block_size] for i in range(num_blocks)]
-    return blocks
+from Conv.util.util import encode_sequence_with_polynomial, divide_into_blocks
 
 
 def convert_sequence_to_string(sequence):

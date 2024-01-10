@@ -6,6 +6,7 @@ from JPEG.Quantizer.quantize import quantize
 from JPEG.ZigzagTransform.zigzag_transform import zigzag_transform
 from JPEG.RunLength.Run_Length_Encoder import run_length_encoder
 from JPEG.HuffmanCode.huffman_encode import huffman_encode
+from JPEG.FinitePercisionArthimiticDecoder.encoder import arithmetic_encode
 
 def encoder(image_array, N, CompressionMode):
     """
@@ -57,7 +58,7 @@ def encoder(image_array, N, CompressionMode):
         run_length_encoded_blocks = np.append(run_length_encoded_blocks, _1D_block)
 
     # # [6] apply Entropy encoding to each block
-    encoded_data, huffman_tree = huffman_encode(run_length_encoded_blocks)
+    encoded_data, huffman_tree = arithmetic_encode(run_length_encoded_blocks)
     
     # return encoded_data, huffman_tree, no_vertical_blocks, no_horizontal_blocks
     return encoded_data, huffman_tree, no_vertical_blocks, no_horizontal_blocks

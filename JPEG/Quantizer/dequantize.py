@@ -1,6 +1,7 @@
 import numpy as np
 from .get_quantization_table import get_quantization_table
 
+
 def dequantize(block, CompressionMode):
     """
     Dequantize a block based on compression mode

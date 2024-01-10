@@ -1,5 +1,5 @@
 from .encoder import convert_sequence_to_string, encode
-from Conv.util.util import generate_binary_sequences, encode_sequence_with_polynomial
+from Conv.util.util import generate_binary_sequences, encode_sequence_with_polynomial, divide_into_blocks
 
 states = None
 generator_polynomials_example = [[1, 1, 1], [0, 1, 1], [1, 0, 1]]
@@ -91,15 +91,13 @@ def min_dist_value(routes):
 
 
 def decode(sequence, generator_polynomials, k):
-    sequence = ''.join(str(int(element)) for element in sequence)
-
     states = state_generator(k - 1, generator_polynomials, 3)
     two_routes = []
     four_routes = []
     arr_strings = binary_string_to_array(sequence)
     for i in range(len(arr_strings)):
         eight_routes = []
-        if (i == 0):
+        if i == 0:
             hamming_dist = compare_bits_with_array(arr_strings[i], ["000", "111"])
             two_routes.append({
                 "to": pathes["00"][0],
@@ -112,7 +110,7 @@ def decode(sequence, generator_polynomials, k):
                 "dist": hamming_dist[1]
             })
 
-        elif (i == 1):
+        elif i == 1:
             for state in pathes["00"]:
                 hamming_dist = compare_bits_with_array(arr_strings[i], states[state])
                 one_before = check_path(two_routes, state)
@@ -143,3 +141,12 @@ def decode(sequence, generator_polynomials, k):
             four_routes = drop_duplicates(eight_routes)
     final_route = min_dist_value(four_routes)
     return final_route
+
+
+def channel_decoder(sequence, generator_polynomials, k, block_size):
+    sequence = ''.join(str(int(element)) for element in sequence)
+    blocks = divide_into_blocks(sequence, block_size*k)
+    s = ''
+    for block in blocks:
+        s += decode(block, generator_polynomials, k)
+    return s

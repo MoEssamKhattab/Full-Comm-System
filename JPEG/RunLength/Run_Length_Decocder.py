@@ -20,9 +20,11 @@ def run_length_decoder(encoded,no_vertical_blocks,no_horizontal_blocks,N):
             continue
         if encoded[i] == 0:
             for j in range(int(encoded[i+1])):
-                image[idx] = 0
-                idx += 1
+                if idx < total_image_length:
+                    image[idx] = 0
+                    idx += 1
         else:
-            image[idx] = encoded[i]
-            idx += 1
+            if idx < total_image_length:
+                image[idx] = encoded[i]
+                idx += 1
     return image

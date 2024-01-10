@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from Conv.BPSK.bpsk_receiver import bpsk_receiver
 from Conv.util.util import awgn, calculate_ber,hamming_distance
-from Conv.conv.decoder import decode
+from Conv.conv.decoder import channel_decoder
 
 
-def channel_demod_channel_decode(bit_seq,bpsk_modulated_sequence_without_conv,modulated_signal,generator_polynomials,K,snr_start, snr_end, snr_step, fc, Tb, n):
+def channel_demod_channel_decode(bit_seq,bpsk_modulated_sequence_without_conv,modulated_signal,generator_polynomials,K,snr_start, snr_end, snr_step, fc, Tb, n,block_size):
     """
     Communication Link (AWGN Channel -> Demodulation -> Channel Decoding) and plot BER vs. SNR
     :param bpsk_modulated_sequence_without_conv:
@@ -33,7 +33,7 @@ def channel_demod_channel_decode(bit_seq,bpsk_modulated_sequence_without_conv,mo
 
         # BER
         src_encoded_ber[i] = calculate_ber(bit_seq, restored_src_encoded_bit_seq)
-        channel_decoded_signal = decode(restored_channel_encoded_bit_seq,generator_polynomials,K)
+        channel_decoded_signal = channel_decoder(restored_channel_encoded_bit_seq,generator_polynomials,K,block_size)
 
         channel_decoded_ber[i] = hamming_distance(bit_seq, channel_decoded_signal)
 

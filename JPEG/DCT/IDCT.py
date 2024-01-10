@@ -1,5 +1,5 @@
-from .IDCT_Basis import IDCT_Basis
 import numpy as np
+
 
 def IDCT(C, idct_basis):
     """
@@ -9,11 +9,11 @@ def IDCT(C, idct_basis):
     :return: IDCT of C
     """
     N = len(C)
-    A = np.zeros((N,N))
+    A = np.zeros((N, N))
 
     for x in range(N):
         for y in range(N):
             basis = idct_basis[x][y]
             A[x][y] = np.sum(np.multiply(C, basis))
-    
+
     return A

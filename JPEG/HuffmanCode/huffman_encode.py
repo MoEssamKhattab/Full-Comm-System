@@ -2,6 +2,7 @@ from JPEG.HuffmanCode.huffman_decode import huffman_decode
 from JPEG.HuffmanCode.build_huffman import build_huffman_tree, generate_huffman_codes
 from collections import defaultdict, Counter  # Import defaultdict and Counter for convenient data structures
 
+
 # Function to encode data using Huffman codes
 def huffman_encode(data):
     """
