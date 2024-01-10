@@ -68,7 +68,6 @@ def main():
     
     # plot the 6 restored images in one plot (4 * 2) and let the original image occupy the whole first row
     fig, ax = plt.subplots(2, 4)
-
     ax[0, 0].imshow(original_image, cmap='gray')
     ax[0, 0].set_title('Original Image')
 
