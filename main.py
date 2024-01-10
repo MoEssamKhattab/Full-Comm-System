@@ -12,11 +12,7 @@ from Conv.communication_link import communication_link
 def main():
     # ==================== Read Image =======================
     N = 8
-<<<<<<< Updated upstream
     image_path = "./img2.jpg"
-=======
-    image_path = "./ha3.jpeg"
->>>>>>> Stashed changes
     image_array, vertical_padding, horizontal_padding = read_image(image_path, N)
 
     print(image_array.shape)
