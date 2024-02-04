@@ -5,7 +5,7 @@ from Conv.util.util import awgn, calculate_ber,hamming_distance
 from Conv.conv.decoder import channel_decoder
 
 
-def channel_demod_channel_decode(bit_seq,bpsk_modulated_sequence_without_conv,modulated_signal,generator_polynomials,K,snr_start, snr_end, snr_step, fc, Tb, n,block_size):
+def simulate_ber_vs_snr(bit_seq,bpsk_modulated_sequence_without_conv,modulated_signal,generator_polynomials,K,snr_start, snr_end, snr_step, fc, Tb, n,block_size):
     """
     Communication Link (AWGN Channel -> Demodulation -> Channel Decoding) and plot BER vs. SNR
     :param bpsk_modulated_sequence_without_conv:

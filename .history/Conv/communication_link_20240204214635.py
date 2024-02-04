@@ -1,11 +1,11 @@
 from .conv.encoder import channel_encoder
 from .BPSK.bpsk_transmitter import bpsk_transmitter
-from .simulate_ber_vs_snr import simulate_ber_vs_snr
+from .channel_demod_channel_decode import channel_demod_channel_decode
 
 
 def communication_link(s, generator_polynomials, K, fc, Ab, Tb, n, snr_start, snr_end, snr_step, block_size):
     """
-    Communication Link (Channel Encoding -> Modulation -> AWGN Channel -> Demodulation -> Channel Decoding)
+    Communication Link (Source Encoding -> Channel Encoding -> Modulation -> AWGN Channel -> Demodulation -> Channel Decoding)
     :param s: original bit sequence
     :param generator_polynomials: generator polynomials
     :param K: constraint length
